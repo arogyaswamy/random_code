@@ -1,0 +1,82 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                         PREAMBLE                             %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% font size, paper size, column number (can omit for single column), document type (article, book, etc.). Adding the option 'draft' will make LaTeX mark any places with sub-optimal typesetting (good for checking "overfull" and "underfull" warnings).
+\documentclass[11pt, letterpaper, twocolumn]{article}
+% Expands the size of the text block by reducing margin size. In single-column, this reduces readability by putting too many words on a line, but it works great with twocolumn (above).
+\usepackage{fullpage}
+
+% Allows a fourth level of sectioning (\paragraph)
+\usepackage{titlesec}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries\itshape}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{.5ex}
+
+% Allows fancy math:
+\usepackage{amsmath}
+
+% Allows use of extra symbols. For example, \textcelsius.
+%% Unneeded now because this package is incorporated into LaTeX. For a list of symbols and their commands, see here: http://home.online.no/~pjacklam/latex/textcomp.pdf
+%\usepackage{textcomp}
+
+% Makes a better bibliography. The options {authoryear, numbers, super} describe the in-text citation mode.
+\usepackage[super]{natbib}
+
+% Sets font encoding, which allows for better handling of non-English characters, and UTF8 is also just good general practice.
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% Restarts the footnote symbols on each page. New symbols can also be set with the \setfnsymbol and \DefineFNsymbols commands (see package documentation: http://ctan.org/pkg/footmisc)
+\usepackage[perpage,symbol*]{footmisc}
+
+% Allows the use of a subtitle that will also appear when using the \maketitle command
+\usepackage{titling}
+\newcommand{\subtitle}[1]{%
+  \posttitle{%
+    \par\end{center}
+    \begin{center}\large#1\end{center}
+    \vskip0.5em}%
+}
+
+% Hyphenation guide. For words that LaTeX hyphenates badly, or longer words you don't expect LaTeX to have in its library (such as systematic names of species), insert them here with hyphens where LaTeX is allowed to hyphenate.
+\hyphenation{phen-o-type phen-o-types gen-o-type gen-o-types}
+
+% % If R code needs to be used/run, use the following markup:
+% #  <<eval = FALSE, echo=TRUE, fig=FALSE, results=verbatim>>=
+% #  # This would be R code
+% #  @
+% % 
+% The code chunk starts with "<<...>>=" and ends with "@"; eval decides if the code will be run (since you don't want to accidentally run high-memory code, I set it to FALSE for now), and echo decides if the code will be printed in the pdf.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%                     DOCUMENT START                           %%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{document}
+\SweaveOpts{concordance=TRUE}
+\title{\textbf{This is a Leaf, Not a Title: \textleaf}}
+\subtitle{This is an Interrobang, But it Should be a Subtitle: \textinterrobang}
+\author{Keshav Arogyaswamy} 
+\date{\today}
+\maketitle
+% % Optional table of contents. Only use if needed. Precede AND follow with \newpage command if you want to keep the ToC on its own page
+% \tableofcontents
+% % Start your document here. Use \section, \subsection, \subsubsection, and \paragraph to organize text.
+\section{Section 1}
+
+
+
+\section{Section 2}
+
+
+
+
+%% Everything from here until the last line (\end{document}) is only needed with a bibliography. The \clearpage command forces all remaining figures to be printed, and starts the bibliography on a new page. \onecolumn tends to look better for sources because it prevents things like URLs or large words from causing weird typesetting. The \section[References]{} command creates an hidden section mark. It doesn't show up here, but it will show up if you have a table of contents (the \bibliography command doesn't automatically put an entry into the ToC). 
+% \clearpage
+% \onecolumn
+% \section[References]{}
+%% Other styles: plain, abbrv, unsrt (list refs in order used), apa
+% \bibliographystyle{unsrt}
+% \bibliography{}
+
+\end{document}
